@@ -1,0 +1,8 @@
+{
+    "MYSQL": {
+        "host": "localhost",
+        "user": "sampada",
+        "password": "Sampada@123",
+        "db": "llp"
+    }
+}
