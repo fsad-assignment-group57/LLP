@@ -46,9 +46,9 @@ class userLanguages(Resource):
                 #     FROM {self.__DB_table}
                 #     WHERE user_id = {user_id} AND language = '{language}')""")
                 
-                cursor.execute(f"SELECT 1 FROM {self.__DB_table} WHERE user_id = {user_id} AND language = '{language}'")
+                cursor.execute(f"SELECT 1 FROM {self.__DB_table} WHERE user_id = '{user_id}' AND language = '{language}'")
                 if cursor.fetchone() is None:
-                    cursor.execute(f"""INSERT INTO {self.__DB_table} (user_id, language) VALUES ({user_id}, '{language}')""")
+                    cursor.execute(f"""INSERT INTO {self.__DB_table} (user_id, language) VALUES ('{user_id}', '{language}')""")
                 
                 mysql.connection.commit()
 
@@ -75,7 +75,7 @@ class userLanguages(Resource):
     )
     def get(self, user_id):
         cursor = mysql.connection.cursor()
-        cursor.execute(f"SELECT language FROM {self.__DB_table} WHERE user_id = {user_id}")
+        cursor.execute(f"SELECT language FROM {self.__DB_table} WHERE user_id = '{user_id}'")
         languages = [row[0] for row in cursor.fetchall()]
 
         cursor.close()
