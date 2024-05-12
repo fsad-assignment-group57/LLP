@@ -1,0 +1,1201 @@
+<!DOCTYPE html>
+<!-- saved from url=(0044)file:///F:/BITS/LLP/Swagger%20UI.html#!/spec -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>Swagger UI</title>
+  <link href="./Swagger Specification_files/css" rel="stylesheet" type="text/css">
+  <link href="./Swagger Specification_files/highlight.default.css" media="screen" rel="stylesheet" type="text/css">
+  <link href="./Swagger Specification_files/screen.css" media="screen" rel="stylesheet" type="text/css">
+  <script type="text/javascript" src="./Swagger Specification_files/shred.bundle.js.download"></script>
+  <script src="./Swagger Specification_files/jquery-1.8.0.min.js.download" type="text/javascript"></script>
+  <script src="./Swagger Specification_files/jquery.slideto.min.js.download" type="text/javascript"></script>
+  <script src="./Swagger Specification_files/jquery.wiggle.min.js.download" type="text/javascript"></script>
+  <script src="./Swagger Specification_files/jquery.ba-bbq.min.js.download" type="text/javascript"></script>
+  <script src="./Swagger Specification_files/handlebars-1.0.0.js.download" type="text/javascript"></script>
+  <script src="./Swagger Specification_files/underscore-min.js.download" type="text/javascript"></script>
+  <script src="./Swagger Specification_files/backbone-min.js.download" type="text/javascript"></script>
+  <script src="./Swagger Specification_files/swagger.js.download" type="text/javascript"></script>
+  <script src="./Swagger Specification_files/swagger-ui.js.download" type="text/javascript"></script>
+  <script src="./Swagger Specification_files/highlight.7.3.pack.js.download" type="text/javascript"></script>
+
+  <!-- enabling this will enable oauth2 implicit scope support -->
+  <script src="./Swagger Specification_files/swagger-oauth.js.download" type="text/javascript"></script>
+
+  <script type="text/javascript">
+    $(function () {
+      window.swaggerUi = new SwaggerUi({
+      url: "http://localhost:5000/api/spec/_/resource_list.json",
+      dom_id: "swagger-ui-container",
+      supportedSubmitMethods: ['get', 'post', 'put', 'delete'],
+      onComplete: function(swaggerApi, swaggerUi){
+        log("Loaded SwaggerUI");
+
+        if(typeof initOAuth == "function") {
+          /*
+          initOAuth({
+            clientId: "your-client-id",
+            realm: "your-realms",
+            appName: "your-app-name"
+          });
+          */
+        }
+        $('pre code').each(function(i, e) {
+          hljs.highlightBlock(e)
+        });
+      },
+      onFailure: function(data) {
+        log("Unable to Load SwaggerUI");
+      },
+      docExpansion: "none"
+    });
+
+    $('#input_apiKey').change(function() {
+      var key = $('#input_apiKey')[0].value;
+      log("key: " + key);
+      if(key && key.trim() != "") {
+        log("added key " + key);
+        window.authorizations.add("key", new ApiKeyAuthorization("api_key", key, "query"));
+      }
+    })
+    window.swaggerUi.load();
+  });
+  </script>
+</head>
+
+<body>
+<div id="header">
+  <div class="swagger-ui-wrap">
+    <a id="logo" href="http://swagger.wordnik.com/">swagger</a>
+    <form id="api_selector">
+      <div class="input icon-btn">
+        <img id="show-pet-store-icon" src="./Swagger Specification_files/pet_store_api.png" title="Show Swagger Petstore Example Apis">
+      </div>
+      <div class="input icon-btn">
+        <img id="show-wordnik-dev-icon" src="./Swagger Specification_files/wordnik_api.png" title="Show Wordnik Developer Apis">
+      </div>
+      <div class="input"><input placeholder="http://example.com/api" id="input_baseUrl" name="baseUrl" type="text"></div>
+      <div class="input"><input placeholder="api_key" id="input_apiKey" name="apiKey" type="text"></div>
+      <div class="input"><a id="explore" href="http://localhost:5000/api/spec.html#">Explore</a></div>
+    </form>
+  </div>
+</div>
+
+<div id="message-bar" class="swagger-ui-wrap message-success"></div>
+<div id="swagger-ui-container" class="swagger-ui-wrap"><div class="info" id="api_info">
+  
+</div>
+<div class="container" id="resources_container">
+    <ul id="resources">
+    <li id="resource_spec" class="resource active"><div class="heading">
+  <h2>
+    <a href="file:///F:/BITS/LLP/Swagger%20UI.html#!/spec" onclick="Docs.toggleEndpointListForResource(&#39;spec&#39;);">spec</a>  : Auto generated API docs by flask-restful-swagger
+  </h2>
+  <ul class="options">
+    <li>
+      <a href="file:///F:/BITS/LLP/Swagger%20UI.html#!/spec" id="endpointListTogger_spec" onclick="Docs.toggleEndpointListForResource(&#39;spec&#39;);">Show/Hide</a>
+    </li>
+    <li>
+      <a href="file:///F:/BITS/LLP/Swagger%20UI.html#" onclick="Docs.collapseOperationsForResource(&#39;spec&#39;); return false;">
+        List Operations
+      </a>
+    </li>
+    <li>
+      <a href="file:///F:/BITS/LLP/Swagger%20UI.html#" onclick="Docs.expandOperationsForResource(&#39;spec&#39;); return false;">
+        Expand Operations
+      </a>
+    </li>
+    <li>
+      <a href="http://localhost:5000/api/spec">Raw</a>
+    </li>
+  </ul>
+</div>
+<ul class="endpoints" id="spec_endpoint_list" style="">
+
+<li class="endpoint">
+  <ul class="operations">
+    <li class="get operation" id="spec_get_hello">
+      <div class="heading">
+        <h3>
+          <span class="http_method">
+          <a href="file:///F:/BITS/LLP/Swagger%20UI.html#!/spec/get_hello" class="toggleOperation">get</a>
+          </span>
+          <span class="path">
+          <a href="file:///F:/BITS/LLP/Swagger%20UI.html#!/spec/get_hello" class="toggleOperation">/</a>
+          </span>
+        </h3>
+        <ul class="options">
+          <li>
+          <a href="file:///F:/BITS/LLP/Swagger%20UI.html#!/spec/get_hello" class="toggleOperation"></a>
+          </li>
+        </ul>
+      </div>
+      <div class="content" id="spec_get_hello_content" style="display:none">
+        
+        <h4>Implementation Notes</h4>
+        <p>Get hello message</p>
+        
+        
+        
+        
+        
+        
+          <h4>Response Class</h4>
+          <p><span class="model-signature"><div><div>
+<ul class="signature-nav">
+    <li><a class="description-link selected" href="file:///F:/BITS/LLP/Swagger%20UI.html#">Model</a></li>
+    <li><a class="snippet-link" href="file:///F:/BITS/LLP/Swagger%20UI.html#">Model Schema</a></li>
+</ul>
+<div>
+
+<div class="signature-container">
+    <div class="description" style="display: block;">
+        dict
+    </div>
+
+    <div class="snippet" style="display: none;">
+        <pre><code class="undefined"></code></pre>
+        <small class="notice"></small>
+    </div>
+</div>
+
+</div></div></div></span></p>
+          <br>
+          <div class="response-content-type"><div><label for="responseContentType">Response Content Type</label>
+<select name="responseContentType">
+
+  
+  <option value="application/json">application/json</option>
+  
+
+</select>
+</div></div>
+        
+        <form accept-charset="UTF-8" class="sandbox">
+          <div style="margin:0;padding:0;display:inline"></div>
+          
+          
+          
+          <div class="sandbox_header">
+            <input class="submit" name="commit" type="button" value="Try it out!">
+            <a href="file:///F:/BITS/LLP/Swagger%20UI.html#" class="response_hider" style="display:none">Hide Response</a>
+            <img alt="Throbber" class="response_throbber" src="./Swagger Specification_files/throbber.gif" style="display:none">
+          </div>
+          
+        </form>
+        <div class="response" style="display:none">
+          <h4>Request URL</h4>
+          <div class="block request_url"></div>
+          <h4>Response Body</h4>
+          <div class="block response_body"></div>
+          <h4>Response Code</h4>
+          <div class="block response_code"></div>
+          <h4>Response Headers</h4>
+          <div class="block response_headers"></div>
+        </div>
+      </div>
+    </li>
+  </ul>
+</li><li class="endpoint">
+  <ul class="operations">
+    <li class="get operation" id="spec_get_square">
+      <div class="heading">
+        <h3>
+          <span class="http_method">
+          <a href="file:///F:/BITS/LLP/Swagger%20UI.html#!/spec/get_square" class="toggleOperation">get</a>
+          </span>
+          <span class="path">
+          <a href="file:///F:/BITS/LLP/Swagger%20UI.html#!/spec/get_square" class="toggleOperation">/square</a>
+          </span>
+        </h3>
+        <ul class="options">
+          <li>
+          <a href="file:///F:/BITS/LLP/Swagger%20UI.html#!/spec/get_square" class="toggleOperation"></a>
+          </li>
+        </ul>
+      </div>
+      <div class="content" id="spec_get_square_content" style="display:none">
+        
+        <h4>Implementation Notes</h4>
+        <p>Calculate square of a number</p>
+        
+        
+        
+        
+        
+        
+          <h4>Response Class</h4>
+          <p><span class="model-signature"><div><div>
+<ul class="signature-nav">
+    <li><a class="description-link selected" href="file:///F:/BITS/LLP/Swagger%20UI.html#">Model</a></li>
+    <li><a class="snippet-link" href="file:///F:/BITS/LLP/Swagger%20UI.html#">Model Schema</a></li>
+</ul>
+<div>
+
+<div class="signature-container">
+    <div class="description" style="display: block;">
+        dict
+    </div>
+
+    <div class="snippet" style="display: none;">
+        <pre><code class="undefined"></code></pre>
+        <small class="notice"></small>
+    </div>
+</div>
+
+</div></div></div></span></p>
+          <br>
+          <div class="response-content-type"><div><label for="responseContentType">Response Content Type</label>
+<select name="responseContentType">
+
+  
+  <option value="application/json">application/json</option>
+  
+
+</select>
+</div></div>
+        
+        <form accept-charset="UTF-8" class="sandbox">
+          <div style="margin:0;padding:0;display:inline"></div>
+          
+          <h4>Parameters</h4>
+          <table class="fullwidth">
+          <thead>
+            <tr>
+            <th style="width: 100px; max-width: 100px">Parameter</th>
+            <th style="width: 310px; max-width: 310px">Value</th>
+            <th style="width: 200px; max-width: 200px">Description</th>
+            <th style="width: 100px; max-width: 100px">Parameter Type</th>
+            <th style="width: 220px; max-width: 230px">Data Type</th>
+            </tr>
+          </thead>
+          <tbody class="operation-params">
+
+          <tr><td class="code required">number</td>
+<td>
+	
+		
+			
+				<input class="parameter required" minlength="1" name="number" placeholder="(required)" type="text" value="">
+			
+		
+	
+</td>
+<td>
+	<strong>Input number</strong>
+</td>
+<td>query</td>
+<td><span class="model-signature">integer</span></td>
+</tr></tbody>
+          </table>
+          
+          
+          
+          <div class="sandbox_header">
+            <input class="submit" name="commit" type="button" value="Try it out!">
+            <a href="file:///F:/BITS/LLP/Swagger%20UI.html#" class="response_hider" style="display:none">Hide Response</a>
+            <img alt="Throbber" class="response_throbber" src="./Swagger Specification_files/throbber.gif" style="display:none">
+          </div>
+          
+        </form>
+        <div class="response" style="display:none">
+          <h4>Request URL</h4>
+          <div class="block request_url"></div>
+          <h4>Response Body</h4>
+          <div class="block response_body"></div>
+          <h4>Response Code</h4>
+          <div class="block response_code"></div>
+          <h4>Response Headers</h4>
+          <div class="block response_headers"></div>
+        </div>
+      </div>
+    </li>
+  </ul>
+</li><li class="endpoint">
+  <ul class="operations">
+    <li class="post operation" id="spec_post_square">
+      <div class="heading">
+        <h3>
+          <span class="http_method">
+          <a href="file:///F:/BITS/LLP/Swagger%20UI.html#!/spec/post_square" class="toggleOperation">post</a>
+          </span>
+          <span class="path">
+          <a href="file:///F:/BITS/LLP/Swagger%20UI.html#!/spec/post_square" class="toggleOperation">/square</a>
+          </span>
+        </h3>
+        <ul class="options">
+          <li>
+          <a href="file:///F:/BITS/LLP/Swagger%20UI.html#!/spec/post_square" class="toggleOperation"></a>
+          </li>
+        </ul>
+      </div>
+      <div class="content" id="spec_post_square_content" style="display:none">
+        
+        <h4>Implementation Notes</h4>
+        <p>Calculate square of a number</p>
+        
+        
+        
+        
+        
+        
+          <h4>Response Class</h4>
+          <p><span class="model-signature"><div><div>
+<ul class="signature-nav">
+    <li><a class="description-link selected" href="file:///F:/BITS/LLP/Swagger%20UI.html#">Model</a></li>
+    <li><a class="snippet-link" href="file:///F:/BITS/LLP/Swagger%20UI.html#">Model Schema</a></li>
+</ul>
+<div>
+
+<div class="signature-container">
+    <div class="description" style="display: block;">
+        dict
+    </div>
+
+    <div class="snippet" style="display: none;">
+        <pre><code class="undefined"></code></pre>
+        <small class="notice"></small>
+    </div>
+</div>
+
+</div></div></div></span></p>
+          <br>
+          <div class="response-content-type"><div><label for="responseContentType">Response Content Type</label>
+<select name="responseContentType">
+
+  
+  <option value="application/json">application/json</option>
+  
+
+</select>
+</div></div>
+        
+        <form accept-charset="UTF-8" class="sandbox">
+          <div style="margin:0;padding:0;display:inline"></div>
+          
+          <h4>Parameters</h4>
+          <table class="fullwidth">
+          <thead>
+            <tr>
+            <th style="width: 100px; max-width: 100px">Parameter</th>
+            <th style="width: 310px; max-width: 310px">Value</th>
+            <th style="width: 200px; max-width: 200px">Description</th>
+            <th style="width: 100px; max-width: 100px">Parameter Type</th>
+            <th style="width: 220px; max-width: 230px">Data Type</th>
+            </tr>
+          </thead>
+          <tbody class="operation-params">
+
+          <tr><td class="code required">number</td>
+<td>
+	
+		
+			
+				<textarea class="body-textarea" placeholder="(required)" name="number"></textarea>
+				<br>
+				<div class="parameter-content-type"><div><label for="parameterContentType">Parameter content type:</label>
+<select name="parameterContentType">
+
+  <option value="application/json">application/json</option>
+
+</select>
+</div></div>
+			
+		
+	
+</td>
+<td>
+	<strong>Input number</strong>
+</td>
+<td>body</td>
+<td><span class="model-signature">integer</span></td>
+</tr></tbody>
+          </table>
+          
+          
+          
+          <div class="sandbox_header">
+            <input class="submit" name="commit" type="button" value="Try it out!">
+            <a href="file:///F:/BITS/LLP/Swagger%20UI.html#" class="response_hider" style="display:none">Hide Response</a>
+            <img alt="Throbber" class="response_throbber" src="./Swagger Specification_files/throbber.gif" style="display:none">
+          </div>
+          
+        </form>
+        <div class="response" style="display:none">
+          <h4>Request URL</h4>
+          <div class="block request_url"></div>
+          <h4>Response Body</h4>
+          <div class="block response_body"></div>
+          <h4>Response Code</h4>
+          <div class="block response_code"></div>
+          <h4>Response Headers</h4>
+          <div class="block response_headers"></div>
+        </div>
+      </div>
+    </li>
+  </ul>
+</li><li class="endpoint">
+  <ul class="operations">
+    <li class="get operation" id="spec_fetch_languages">
+      <div class="heading">
+        <h3>
+          <span class="http_method">
+          <a href="file:///F:/BITS/LLP/Swagger%20UI.html#!/spec/fetch_languages" class="toggleOperation">get</a>
+          </span>
+          <span class="path">
+          <a href="file:///F:/BITS/LLP/Swagger%20UI.html#!/spec/fetch_languages" class="toggleOperation">/user-languages/</a>
+          </span>
+        </h3>
+        <ul class="options">
+          <li>
+          <a href="file:///F:/BITS/LLP/Swagger%20UI.html#!/spec/fetch_languages" class="toggleOperation"></a>
+          </li>
+        </ul>
+      </div>
+      <div class="content" id="spec_fetch_languages_content" style="display:none">
+        
+        <h4>Implementation Notes</h4>
+        <p>Fetch registered languages for a user</p>
+        
+        
+        
+        
+        
+        
+          <h4>Response Class</h4>
+          <p><span class="model-signature"><div><div>
+<ul class="signature-nav">
+    <li><a class="description-link selected" href="file:///F:/BITS/LLP/Swagger%20UI.html#">Model</a></li>
+    <li><a class="snippet-link" href="file:///F:/BITS/LLP/Swagger%20UI.html#">Model Schema</a></li>
+</ul>
+<div>
+
+<div class="signature-container">
+    <div class="description" style="display: block;">
+        dict
+    </div>
+
+    <div class="snippet" style="display: none;">
+        <pre><code class="undefined"></code></pre>
+        <small class="notice"></small>
+    </div>
+</div>
+
+</div></div></div></span></p>
+          <br>
+          <div class="response-content-type"><div><label for="responseContentType">Response Content Type</label>
+<select name="responseContentType">
+
+  
+  <option value="application/json">application/json</option>
+  
+
+</select>
+</div></div>
+        
+        <form accept-charset="UTF-8" class="sandbox">
+          <div style="margin:0;padding:0;display:inline"></div>
+          
+          <h4>Parameters</h4>
+          <table class="fullwidth">
+          <thead>
+            <tr>
+            <th style="width: 100px; max-width: 100px">Parameter</th>
+            <th style="width: 310px; max-width: 310px">Value</th>
+            <th style="width: 200px; max-width: 200px">Description</th>
+            <th style="width: 100px; max-width: 100px">Parameter Type</th>
+            <th style="width: 220px; max-width: 230px">Data Type</th>
+            </tr>
+          </thead>
+          <tbody class="operation-params">
+
+          <tr><td class="code required">user_id</td>
+<td>
+	
+		
+			
+				<input class="parameter required" minlength="1" name="user_id" placeholder="(required)" type="text" value="">
+			
+		
+	
+</td>
+<td>
+	<strong>User ID</strong>
+</td>
+<td>path</td>
+<td><span class="model-signature">string</span></td>
+</tr></tbody>
+          </table>
+          
+          
+          
+          <div class="sandbox_header">
+            <input class="submit" name="commit" type="button" value="Try it out!">
+            <a href="file:///F:/BITS/LLP/Swagger%20UI.html#" class="response_hider" style="display:none">Hide Response</a>
+            <img alt="Throbber" class="response_throbber" src="./Swagger Specification_files/throbber.gif" style="display:none">
+          </div>
+          
+        </form>
+        <div class="response" style="display:none">
+          <h4>Request URL</h4>
+          <div class="block request_url"></div>
+          <h4>Response Body</h4>
+          <div class="block response_body"></div>
+          <h4>Response Code</h4>
+          <div class="block response_code"></div>
+          <h4>Response Headers</h4>
+          <div class="block response_headers"></div>
+        </div>
+      </div>
+    </li>
+  </ul>
+</li><li class="endpoint">
+  <ul class="operations">
+    <li class="post operation" id="spec_store_languages">
+      <div class="heading">
+        <h3>
+          <span class="http_method">
+          <a href="file:///F:/BITS/LLP/Swagger%20UI.html#!/spec/store_languages" class="toggleOperation">post</a>
+          </span>
+          <span class="path">
+          <a href="file:///F:/BITS/LLP/Swagger%20UI.html#!/spec/store_languages" class="toggleOperation">/user-languages/</a>
+          </span>
+        </h3>
+        <ul class="options">
+          <li>
+          <a href="file:///F:/BITS/LLP/Swagger%20UI.html#!/spec/store_languages" class="toggleOperation"></a>
+          </li>
+        </ul>
+      </div>
+      <div class="content" id="spec_store_languages_content" style="display:none">
+        
+        <h4>Implementation Notes</h4>
+        <p>Store registered languages for a user</p>
+        
+        
+        
+        
+        
+        
+          <h4>Response Class</h4>
+          <p><span class="model-signature"><div><div>
+<ul class="signature-nav">
+    <li><a class="description-link selected" href="file:///F:/BITS/LLP/Swagger%20UI.html#">Model</a></li>
+    <li><a class="snippet-link" href="file:///F:/BITS/LLP/Swagger%20UI.html#">Model Schema</a></li>
+</ul>
+<div>
+
+<div class="signature-container">
+    <div class="description" style="display: block;">
+        dict
+    </div>
+
+    <div class="snippet" style="display: none;">
+        <pre><code class="undefined"></code></pre>
+        <small class="notice"></small>
+    </div>
+</div>
+
+</div></div></div></span></p>
+          <br>
+          <div class="response-content-type"><div><label for="responseContentType">Response Content Type</label>
+<select name="responseContentType">
+
+  
+  <option value="application/json">application/json</option>
+  
+
+</select>
+</div></div>
+        
+        <form accept-charset="UTF-8" class="sandbox">
+          <div style="margin:0;padding:0;display:inline"></div>
+          
+          <h4>Parameters</h4>
+          <table class="fullwidth">
+          <thead>
+            <tr>
+            <th style="width: 100px; max-width: 100px">Parameter</th>
+            <th style="width: 310px; max-width: 310px">Value</th>
+            <th style="width: 200px; max-width: 200px">Description</th>
+            <th style="width: 100px; max-width: 100px">Parameter Type</th>
+            <th style="width: 220px; max-width: 230px">Data Type</th>
+            </tr>
+          </thead>
+          <tbody class="operation-params">
+
+          <tr><td class="code required">user_id</td>
+<td>
+	
+		
+			
+				<textarea class="body-textarea" placeholder="(required)" name="user_id"></textarea>
+				<br>
+				<div class="parameter-content-type"><div><label for="parameterContentType">Parameter content type:</label>
+<select name="parameterContentType">
+
+  <option value="application/json">application/json</option>
+
+</select>
+</div></div>
+			
+		
+	
+</td>
+<td>
+	<strong>User ID</strong>
+</td>
+<td>body</td>
+<td><span class="model-signature">string</span></td>
+</tr><tr><td class="code required">languages</td>
+<td>
+	
+		
+			
+				<textarea class="body-textarea" placeholder="(required)" name="languages"></textarea>
+				<br>
+				<div class="parameter-content-type"><div><label for="parameterContentType">Parameter content type:</label>
+<select name="parameterContentType">
+
+  <option value="application/json">application/json</option>
+
+</select>
+</div></div>
+			
+		
+	
+</td>
+<td>
+	<strong>List of registered languages</strong>
+</td>
+<td>body</td>
+<td><span class="model-signature">list</span></td>
+</tr></tbody>
+          </table>
+          
+          
+          
+          <div class="sandbox_header">
+            <input class="submit" name="commit" type="button" value="Try it out!">
+            <a href="file:///F:/BITS/LLP/Swagger%20UI.html#" class="response_hider" style="display:none">Hide Response</a>
+            <img alt="Throbber" class="response_throbber" src="./Swagger Specification_files/throbber.gif" style="display:none">
+          </div>
+          
+        </form>
+        <div class="response" style="display:none">
+          <h4>Request URL</h4>
+          <div class="block request_url"></div>
+          <h4>Response Body</h4>
+          <div class="block response_body"></div>
+          <h4>Response Code</h4>
+          <div class="block response_code"></div>
+          <h4>Response Headers</h4>
+          <div class="block response_headers"></div>
+        </div>
+      </div>
+    </li>
+  </ul>
+</li><li class="endpoint">
+  <ul class="operations">
+    <li class="get operation" id="spec_fetch_languages_0">
+      <div class="heading">
+        <h3>
+          <span class="http_method">
+          <a href="file:///F:/BITS/LLP/Swagger%20UI.html#!/spec/fetch_languages_0" class="toggleOperation">get</a>
+          </span>
+          <span class="path">
+          <a href="file:///F:/BITS/LLP/Swagger%20UI.html#!/spec/fetch_languages_0" class="toggleOperation">/user-languages/{user_id}</a>
+          </span>
+        </h3>
+        <ul class="options">
+          <li>
+          <a href="file:///F:/BITS/LLP/Swagger%20UI.html#!/spec/fetch_languages_0" class="toggleOperation"></a>
+          </li>
+        </ul>
+      </div>
+      <div class="content" id="spec_fetch_languages_0_content" style="display:none">
+        
+        <h4>Implementation Notes</h4>
+        <p>Fetch registered languages for a user</p>
+        
+        
+        
+        
+        
+        
+          <h4>Response Class</h4>
+          <p><span class="model-signature"><div><div>
+<ul class="signature-nav">
+    <li><a class="description-link selected" href="file:///F:/BITS/LLP/Swagger%20UI.html#">Model</a></li>
+    <li><a class="snippet-link" href="file:///F:/BITS/LLP/Swagger%20UI.html#">Model Schema</a></li>
+</ul>
+<div>
+
+<div class="signature-container">
+    <div class="description" style="display: block;">
+        dict
+    </div>
+
+    <div class="snippet" style="display: none;">
+        <pre><code class="undefined"></code></pre>
+        <small class="notice"></small>
+    </div>
+</div>
+
+</div></div></div></span></p>
+          <br>
+          <div class="response-content-type"><div><label for="responseContentType">Response Content Type</label>
+<select name="responseContentType">
+
+  
+  <option value="application/json">application/json</option>
+  
+
+</select>
+</div></div>
+        
+        <form accept-charset="UTF-8" class="sandbox">
+          <div style="margin:0;padding:0;display:inline"></div>
+          
+          <h4>Parameters</h4>
+          <table class="fullwidth">
+          <thead>
+            <tr>
+            <th style="width: 100px; max-width: 100px">Parameter</th>
+            <th style="width: 310px; max-width: 310px">Value</th>
+            <th style="width: 200px; max-width: 200px">Description</th>
+            <th style="width: 100px; max-width: 100px">Parameter Type</th>
+            <th style="width: 220px; max-width: 230px">Data Type</th>
+            </tr>
+          </thead>
+          <tbody class="operation-params">
+
+          <tr><td class="code required">user_id</td>
+<td>
+	
+		
+			
+				<input class="parameter required" minlength="1" name="user_id" placeholder="(required)" type="text" value="">
+			
+		
+	
+</td>
+<td>
+	<strong>User ID</strong>
+</td>
+<td>path</td>
+<td><span class="model-signature">string</span></td>
+</tr></tbody>
+          </table>
+          
+          
+          
+          <div class="sandbox_header">
+            <input class="submit" name="commit" type="button" value="Try it out!">
+            <a href="file:///F:/BITS/LLP/Swagger%20UI.html#" class="response_hider" style="display:none">Hide Response</a>
+            <img alt="Throbber" class="response_throbber" src="./Swagger Specification_files/throbber.gif" style="display:none">
+          </div>
+          
+        </form>
+        <div class="response" style="display:none">
+          <h4>Request URL</h4>
+          <div class="block request_url"></div>
+          <h4>Response Body</h4>
+          <div class="block response_body"></div>
+          <h4>Response Code</h4>
+          <div class="block response_code"></div>
+          <h4>Response Headers</h4>
+          <div class="block response_headers"></div>
+        </div>
+      </div>
+    </li>
+  </ul>
+</li><li class="endpoint">
+  <ul class="operations">
+    <li class="post operation" id="spec_store_languages_0">
+      <div class="heading">
+        <h3>
+          <span class="http_method">
+          <a href="file:///F:/BITS/LLP/Swagger%20UI.html#!/spec/store_languages_0" class="toggleOperation">post</a>
+          </span>
+          <span class="path">
+          <a href="file:///F:/BITS/LLP/Swagger%20UI.html#!/spec/store_languages_0" class="toggleOperation">/user-languages/{user_id}</a>
+          </span>
+        </h3>
+        <ul class="options">
+          <li>
+          <a href="file:///F:/BITS/LLP/Swagger%20UI.html#!/spec/store_languages_0" class="toggleOperation"></a>
+          </li>
+        </ul>
+      </div>
+      <div class="content" id="spec_store_languages_0_content" style="display:none">
+        
+        <h4>Implementation Notes</h4>
+        <p>Store registered languages for a user</p>
+        
+        
+        
+        
+        
+        
+          <h4>Response Class</h4>
+          <p><span class="model-signature"><div><div>
+<ul class="signature-nav">
+    <li><a class="description-link selected" href="file:///F:/BITS/LLP/Swagger%20UI.html#">Model</a></li>
+    <li><a class="snippet-link" href="file:///F:/BITS/LLP/Swagger%20UI.html#">Model Schema</a></li>
+</ul>
+<div>
+
+<div class="signature-container">
+    <div class="description" style="display: block;">
+        dict
+    </div>
+
+    <div class="snippet" style="display: none;">
+        <pre><code class="undefined"></code></pre>
+        <small class="notice"></small>
+    </div>
+</div>
+
+</div></div></div></span></p>
+          <br>
+          <div class="response-content-type"><div><label for="responseContentType">Response Content Type</label>
+<select name="responseContentType">
+
+  
+  <option value="application/json">application/json</option>
+  
+
+</select>
+</div></div>
+        
+        <form accept-charset="UTF-8" class="sandbox">
+          <div style="margin:0;padding:0;display:inline"></div>
+          
+          <h4>Parameters</h4>
+          <table class="fullwidth">
+          <thead>
+            <tr>
+            <th style="width: 100px; max-width: 100px">Parameter</th>
+            <th style="width: 310px; max-width: 310px">Value</th>
+            <th style="width: 200px; max-width: 200px">Description</th>
+            <th style="width: 100px; max-width: 100px">Parameter Type</th>
+            <th style="width: 220px; max-width: 230px">Data Type</th>
+            </tr>
+          </thead>
+          <tbody class="operation-params">
+
+          <tr><td class="code required">user_id</td>
+<td>
+	
+		
+			
+				<textarea class="body-textarea" placeholder="(required)" name="user_id"></textarea>
+				<br>
+				<div class="parameter-content-type"><div><label for="parameterContentType">Parameter content type:</label>
+<select name="parameterContentType">
+
+  <option value="application/json">application/json</option>
+
+</select>
+</div></div>
+			
+		
+	
+</td>
+<td>
+	<strong>User ID</strong>
+</td>
+<td>body</td>
+<td><span class="model-signature">string</span></td>
+</tr><tr><td class="code required">languages</td>
+<td>
+	
+		
+			
+				<textarea class="body-textarea" placeholder="(required)" name="languages"></textarea>
+				<br>
+				<div class="parameter-content-type"><div><label for="parameterContentType">Parameter content type:</label>
+<select name="parameterContentType">
+
+  <option value="application/json">application/json</option>
+
+</select>
+</div></div>
+			
+		
+	
+</td>
+<td>
+	<strong>List of registered languages</strong>
+</td>
+<td>body</td>
+<td><span class="model-signature">list</span></td>
+</tr></tbody>
+          </table>
+          
+          
+          
+          <div class="sandbox_header">
+            <input class="submit" name="commit" type="button" value="Try it out!">
+            <a href="file:///F:/BITS/LLP/Swagger%20UI.html#" class="response_hider" style="display:none">Hide Response</a>
+            <img alt="Throbber" class="response_throbber" src="./Swagger Specification_files/throbber.gif" style="display:none">
+          </div>
+          
+        </form>
+        <div class="response" style="display:none">
+          <h4>Request URL</h4>
+          <div class="block request_url"></div>
+          <h4>Response Body</h4>
+          <div class="block response_body"></div>
+          <h4>Response Code</h4>
+          <div class="block response_code"></div>
+          <h4>Response Headers</h4>
+          <div class="block response_headers"></div>
+        </div>
+      </div>
+    </li>
+  </ul>
+</li><li class="endpoint">
+  <ul class="operations">
+    <li class="get operation" id="spec_fetch_streak">
+      <div class="heading">
+        <h3>
+          <span class="http_method">
+          <a href="file:///F:/BITS/LLP/Swagger%20UI.html#!/spec/fetch_streak" class="toggleOperation">get</a>
+          </span>
+          <span class="path">
+          <a href="file:///F:/BITS/LLP/Swagger%20UI.html#!/spec/fetch_streak" class="toggleOperation">/user-streak/{user_id}</a>
+          </span>
+        </h3>
+        <ul class="options">
+          <li>
+          <a href="file:///F:/BITS/LLP/Swagger%20UI.html#!/spec/fetch_streak" class="toggleOperation"></a>
+          </li>
+        </ul>
+      </div>
+      <div class="content" id="spec_fetch_streak_content" style="display:none">
+        
+        <h4>Implementation Notes</h4>
+        <p>Fetch user</p>
+        
+        
+        
+        
+        
+        
+          <h4>Response Class</h4>
+          <p><span class="model-signature"><div><div>
+<ul class="signature-nav">
+    <li><a class="description-link selected" href="file:///F:/BITS/LLP/Swagger%20UI.html#">Model</a></li>
+    <li><a class="snippet-link" href="file:///F:/BITS/LLP/Swagger%20UI.html#">Model Schema</a></li>
+</ul>
+<div>
+
+<div class="signature-container">
+    <div class="description" style="display: block;">
+        dict
+    </div>
+
+    <div class="snippet" style="display: none;">
+        <pre><code class="undefined"></code></pre>
+        <small class="notice"></small>
+    </div>
+</div>
+
+</div></div></div></span></p>
+          <br>
+          <div class="response-content-type"><div><label for="responseContentType">Response Content Type</label>
+<select name="responseContentType">
+
+  
+  <option value="application/json">application/json</option>
+  
+
+</select>
+</div></div>
+        
+        <form accept-charset="UTF-8" class="sandbox">
+          <div style="margin:0;padding:0;display:inline"></div>
+          
+          <h4>Parameters</h4>
+          <table class="fullwidth">
+          <thead>
+            <tr>
+            <th style="width: 100px; max-width: 100px">Parameter</th>
+            <th style="width: 310px; max-width: 310px">Value</th>
+            <th style="width: 200px; max-width: 200px">Description</th>
+            <th style="width: 100px; max-width: 100px">Parameter Type</th>
+            <th style="width: 220px; max-width: 230px">Data Type</th>
+            </tr>
+          </thead>
+          <tbody class="operation-params">
+
+          <tr><td class="code required">user_id</td>
+<td>
+	
+		
+			
+				<input class="parameter required" minlength="1" name="user_id" placeholder="(required)" type="text" value="">
+			
+		
+	
+</td>
+<td>
+	<strong>User ID</strong>
+</td>
+<td>path</td>
+<td><span class="model-signature">string</span></td>
+</tr></tbody>
+          </table>
+          
+          
+          
+          <div class="sandbox_header">
+            <input class="submit" name="commit" type="button" value="Try it out!">
+            <a href="file:///F:/BITS/LLP/Swagger%20UI.html#" class="response_hider" style="display:none">Hide Response</a>
+            <img alt="Throbber" class="response_throbber" src="./Swagger Specification_files/throbber.gif" style="display:none">
+          </div>
+          
+        </form>
+        <div class="response" style="display:none">
+          <h4>Request URL</h4>
+          <div class="block request_url"></div>
+          <h4>Response Body</h4>
+          <div class="block response_body"></div>
+          <h4>Response Code</h4>
+          <div class="block response_code"></div>
+          <h4>Response Headers</h4>
+          <div class="block response_headers"></div>
+        </div>
+      </div>
+    </li>
+  </ul>
+</li><li class="endpoint">
+  <ul class="operations">
+    <li class="post operation" id="spec_update_streak">
+      <div class="heading">
+        <h3>
+          <span class="http_method">
+          <a href="file:///F:/BITS/LLP/Swagger%20UI.html#!/spec/update_streak" class="toggleOperation">post</a>
+          </span>
+          <span class="path">
+          <a href="file:///F:/BITS/LLP/Swagger%20UI.html#!/spec/update_streak" class="toggleOperation">/user-streak/{user_id}</a>
+          </span>
+        </h3>
+        <ul class="options">
+          <li>
+          <a href="file:///F:/BITS/LLP/Swagger%20UI.html#!/spec/update_streak" class="toggleOperation"></a>
+          </li>
+        </ul>
+      </div>
+      <div class="content" id="spec_update_streak_content" style="display:none">
+        
+        <h4>Implementation Notes</h4>
+        <p>Update user streak</p>
+        
+        
+        
+        
+        
+        
+          <h4>Response Class</h4>
+          <p><span class="model-signature"><div><div>
+<ul class="signature-nav">
+    <li><a class="description-link selected" href="file:///F:/BITS/LLP/Swagger%20UI.html#">Model</a></li>
+    <li><a class="snippet-link" href="file:///F:/BITS/LLP/Swagger%20UI.html#">Model Schema</a></li>
+</ul>
+<div>
+
+<div class="signature-container">
+    <div class="description" style="display: block;">
+        dict
+    </div>
+
+    <div class="snippet" style="display: none;">
+        <pre><code class="undefined"></code></pre>
+        <small class="notice"></small>
+    </div>
+</div>
+
+</div></div></div></span></p>
+          <br>
+          <div class="response-content-type"><div><label for="responseContentType">Response Content Type</label>
+<select name="responseContentType">
+
+  
+  <option value="application/json">application/json</option>
+  
+
+</select>
+</div></div>
+        
+        <form accept-charset="UTF-8" class="sandbox">
+          <div style="margin:0;padding:0;display:inline"></div>
+          
+          <h4>Parameters</h4>
+          <table class="fullwidth">
+          <thead>
+            <tr>
+            <th style="width: 100px; max-width: 100px">Parameter</th>
+            <th style="width: 310px; max-width: 310px">Value</th>
+            <th style="width: 200px; max-width: 200px">Description</th>
+            <th style="width: 100px; max-width: 100px">Parameter Type</th>
+            <th style="width: 220px; max-width: 230px">Data Type</th>
+            </tr>
+          </thead>
+          <tbody class="operation-params">
+
+          <tr><td class="code required">user_id</td>
+<td>
+	
+		
+			
+				<input class="parameter required" minlength="1" name="user_id" placeholder="(required)" type="text" value="">
+			
+		
+	
+</td>
+<td>
+	<strong>User ID</strong>
+</td>
+<td>path</td>
+<td><span class="model-signature">string</span></td>
+</tr></tbody>
+          </table>
+          
+          
+          
+          <div class="sandbox_header">
+            <input class="submit" name="commit" type="button" value="Try it out!">
+            <a href="file:///F:/BITS/LLP/Swagger%20UI.html#" class="response_hider" style="display:none">Hide Response</a>
+            <img alt="Throbber" class="response_throbber" src="./Swagger Specification_files/throbber.gif" style="display:none">
+          </div>
+          
+        </form>
+        <div class="response" style="display:none">
+          <h4>Request URL</h4>
+          <div class="block request_url"></div>
+          <h4>Response Body</h4>
+          <div class="block response_body"></div>
+          <h4>Response Code</h4>
+          <div class="block response_code"></div>
+          <h4>Response Headers</h4>
+          <div class="block response_headers"></div>
+        </div>
+      </div>
+    </li>
+  </ul>
+</li></ul>
+</li></ul>
+
+    <div class="footer">
+        <br>
+        <br>
+        <h4 style="color: #999">[ <span style="font-variant: small-caps">base url</span>: http://localhost:5000/api/spec/_/resource_list.json
+        
+        , <span style="font-variant: small-caps">api version</span>: 0.1
+        ]</h4>
+    </div>
+</div>
+</div>
+
+</body></html>
