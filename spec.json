@@ -1,0 +1,199 @@
+{
+    "apiVersion": "0.1",
+    "swaggerVersion": "1.2",
+    "basePath": "http://localhost:5000",
+    "spec_endpoint_path": "/api/spec",
+    "resourcePath": "/",
+    "produces": [
+        "application/json"
+    ],
+    "description": "Auto generated API docs by flask-restful-swagger",
+    "models": {},
+    "apis": [
+        {
+            "path": "/",
+            "description": "Represents an abstract RESTful resource. Concrete resources should",
+            "notes": "extend from this class and expose methods for each supported HTTP<br/>method. If a resource is invoked with an unsupported HTTP method,<br/>the API will return a response with status 405 Method Not Allowed.<br/>Otherwise the appropriate method is called and passed all arguments<br/>from the url rule used when adding the resource to an Api instance. See<br/>:meth:`~flask_restful.Api.add_resource` for details.",
+            "operations": [
+                {
+                    "method": "get",
+                    "parameters": [],
+                    "nickname": "get_hello",
+                    "summary": null,
+                    "notes": "Get hello message",
+                    "responseClass": "dict"
+                }
+            ]
+        },
+        {
+            "path": "/square",
+            "description": "Represents an abstract RESTful resource. Concrete resources should",
+            "notes": "extend from this class and expose methods for each supported HTTP<br/>method. If a resource is invoked with an unsupported HTTP method,<br/>the API will return a response with status 405 Method Not Allowed.<br/>Otherwise the appropriate method is called and passed all arguments<br/>from the url rule used when adding the resource to an Api instance. See<br/>:meth:`~flask_restful.Api.add_resource` for details.",
+            "operations": [
+                {
+                    "method": "get",
+                    "parameters": [
+                        {
+                            "name": "number",
+                            "description": "Input number",
+                            "required": true,
+                            "dataType": "integer",
+                            "paramType": "query"
+                        }
+                    ],
+                    "nickname": "get_square",
+                    "summary": null,
+                    "notes": "Calculate square of a number",
+                    "responseClass": "dict"
+                },
+                {
+                    "method": "post",
+                    "parameters": [
+                        {
+                            "name": "number",
+                            "description": "Input number",
+                            "required": true,
+                            "dataType": "integer",
+                            "paramType": "body"
+                        }
+                    ],
+                    "nickname": "post_square",
+                    "summary": null,
+                    "notes": "Calculate square of a number",
+                    "responseClass": "dict"
+                }
+            ]
+        },
+        {
+            "path": "/user-languages/",
+            "description": "Represents an abstract RESTful resource. Concrete resources should",
+            "notes": "extend from this class and expose methods for each supported HTTP<br/>method. If a resource is invoked with an unsupported HTTP method,<br/>the API will return a response with status 405 Method Not Allowed.<br/>Otherwise the appropriate method is called and passed all arguments<br/>from the url rule used when adding the resource to an Api instance. See<br/>:meth:`~flask_restful.Api.add_resource` for details.",
+            "operations": [
+                {
+                    "method": "get",
+                    "parameters": [
+                        {
+                            "name": "user_id",
+                            "description": "User ID",
+                            "required": true,
+                            "dataType": "string",
+                            "paramType": "path"
+                        }
+                    ],
+                    "nickname": "fetch_languages",
+                    "summary": null,
+                    "notes": "Fetch registered languages for a user",
+                    "responseClass": "dict"
+                },
+                {
+                    "method": "post",
+                    "parameters": [
+                        {
+                            "name": "user_id",
+                            "description": "User ID",
+                            "required": true,
+                            "dataType": "string",
+                            "paramType": "body"
+                        },
+                        {
+                            "name": "languages",
+                            "description": "List of registered languages",
+                            "required": true,
+                            "dataType": "list",
+                            "paramType": "body"
+                        }
+                    ],
+                    "nickname": "store_languages",
+                    "summary": null,
+                    "notes": "Store registered languages for a user",
+                    "responseClass": "dict"
+                }
+            ]
+        },
+        {
+            "path": "/user-languages/{user_id}",
+            "description": "Represents an abstract RESTful resource. Concrete resources should",
+            "notes": "extend from this class and expose methods for each supported HTTP<br/>method. If a resource is invoked with an unsupported HTTP method,<br/>the API will return a response with status 405 Method Not Allowed.<br/>Otherwise the appropriate method is called and passed all arguments<br/>from the url rule used when adding the resource to an Api instance. See<br/>:meth:`~flask_restful.Api.add_resource` for details.",
+            "operations": [
+                {
+                    "method": "get",
+                    "parameters": [
+                        {
+                            "name": "user_id",
+                            "description": "User ID",
+                            "required": true,
+                            "dataType": "string",
+                            "paramType": "path"
+                        }
+                    ],
+                    "nickname": "fetch_languages",
+                    "summary": null,
+                    "notes": "Fetch registered languages for a user",
+                    "responseClass": "dict"
+                },
+                {
+                    "method": "post",
+                    "parameters": [
+                        {
+                            "name": "user_id",
+                            "description": "User ID",
+                            "required": true,
+                            "dataType": "string",
+                            "paramType": "body"
+                        },
+                        {
+                            "name": "languages",
+                            "description": "List of registered languages",
+                            "required": true,
+                            "dataType": "list",
+                            "paramType": "body"
+                        }
+                    ],
+                    "nickname": "store_languages",
+                    "summary": null,
+                    "notes": "Store registered languages for a user",
+                    "responseClass": "dict"
+                }
+            ]
+        },
+        {
+            "path": "/user-streak/{user_id}",
+            "description": "Represents an abstract RESTful resource. Concrete resources should",
+            "notes": "extend from this class and expose methods for each supported HTTP<br/>method. If a resource is invoked with an unsupported HTTP method,<br/>the API will return a response with status 405 Method Not Allowed.<br/>Otherwise the appropriate method is called and passed all arguments<br/>from the url rule used when adding the resource to an Api instance. See<br/>:meth:`~flask_restful.Api.add_resource` for details.",
+            "operations": [
+                {
+                    "method": "get",
+                    "parameters": [
+                        {
+                            "name": "user_id",
+                            "description": "User ID",
+                            "required": true,
+                            "dataType": "string",
+                            "paramType": "path"
+                        }
+                    ],
+                    "nickname": "fetch_streak",
+                    "summary": null,
+                    "notes": "Fetch user",
+                    "responseClass": "dict"
+                },
+                {
+                    "method": "post",
+                    "parameters": [
+                        {
+                            "name": "user_id",
+                            "description": "User ID",
+                            "required": true,
+                            "dataType": "string",
+                            "paramType": "path"
+                        }
+                    ],
+                    "nickname": "update_streak",
+                    "summary": null,
+                    "notes": "Update user streak",
+                    "responseClass": "dict"
+                }
+            ]
+        }
+    ]
+}
