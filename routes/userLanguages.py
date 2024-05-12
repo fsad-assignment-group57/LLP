@@ -74,14 +74,18 @@ class userLanguages(Resource):
         nickname='fetch_languages'
     )
     def get(self, user_id):
-        cursor = mysql.connection.cursor()
-        cursor.execute(f"SELECT language FROM {self.__DB_table} WHERE user_id = '{user_id}'")
-        languages = [row[0] for row in cursor.fetchall()]
+        try:
+            cursor = mysql.connection.cursor()
+            cursor.execute(f"SELECT language FROM {self.__DB_table} WHERE user_id = '{user_id}'")
+            languages = [row[0] for row in cursor.fetchall()]
 
-        cursor.close()
+            cursor.close()
 
-        if not languages:
-            return {'error': 'User ID not found'}, 404
-        
-        return {'user_id': user_id, 'languages': languages}
+            if not languages:
+                return {'error': 'User ID not found'}, 404
+            
+            return {'user_id': user_id, 'languages': languages}
+        except Exception as e:
+            cursor.close()
+            return {'error': str(e)}, 500
         
